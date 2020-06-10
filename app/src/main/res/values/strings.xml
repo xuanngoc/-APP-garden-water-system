@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Water Garden Auto</string>
+    <string name="device_list">≡ Danh sách thiết bị</string>
+    <string name="sensor_list">≡ Danh sách cảm biến</string>
+    <string name="stt">STT</string>
+    <string name="device_name">Tên thiết bị</string>
+    <string name="device_type">Loại thiết bị</string>
+    <string name="status">Tình trạng</string>
+    <string name="state">On/Off</string>
+    <string name="sensor_name">Tên cảm biến</string>
+    <string name="sensor_type">Loại cảm biến</string>
+
+</resources>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<TableRow xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/cell_shape">
+
+    <TextView
+        android:id="@+id/orderView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.1"
+        style="@style/fieldNameTable"
+        tools:text="@string/stt"
+        android:textColor="#000" />
+
+    <TextView
+        android:id="@+id/deviceNameView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.3"
+        style="@style/fieldNameTable"
+        tools:text="@string/device_name"
+        android:textColor="#000" />
+
+    <TextView
+        android:id="@+id/deviceTypeView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.25"
+        style="@style/fieldNameTable"
+        tools:text="@string/device_type"
+        android:textColor="#000" />
+
+    <TextView
+        android:id="@+id/deviceStatusView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.25"
+        style="@style/fieldNameTable"
+        tools:text="@string/status"
+        android:textColor="#000" />
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/deviceStateView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.15"
+        android:paddingStart="0dp"
+        android:paddingEnd="25dp"/>
+
+</TableRow>
