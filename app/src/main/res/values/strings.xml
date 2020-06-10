@@ -9,5 +9,7 @@
     <string name="state">On/Off</string>
     <string name="sensor_name">Tên cảm biến</string>
     <string name="sensor_type">Loại cảm biến</string>
+    <string name="username">xuanngocb</string>
+    <string name="password">adminadmin</string>
 
 </resources>

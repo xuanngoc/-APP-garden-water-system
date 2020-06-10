@@ -48,22 +48,6 @@ class ListGardenActivity : AppCompatActivity() {
             gardenAdapter.setPlants(plantList)
         })
 
-        viewModel.deviceTypes.observe(this, Observer { deviceTypes ->
-            deviceTypeList = deviceTypes
-        })
-
-        viewModel.devices.observe(this, Observer { devices ->
-            deviceList = devices
-        })
-
-        viewModel.sensorTypes.observe(this, Observer { sensorTypes ->
-            sensorTypeList = sensorTypes
-        })
-
-        viewModel.sensors.observe(this, Observer { sensors ->
-            sensorList = sensors
-        })
-
         gardenAdapter.setItemClickListener(object: GardenAdapter.ItemClickListener {
             override fun onItemClickListener(garden: Garden) {
                 // intent to detail garden activity
@@ -83,11 +67,6 @@ class ListGardenActivity : AppCompatActivity() {
     companion object{
         lateinit var gardenList: List<Garden>
         lateinit var plantList: List<Plant>
-        lateinit var deviceTypeList: List<DeviceType>
-        lateinit var deviceList: List<Device>
-        lateinit var sensorTypeList: List<SensorType>
-        lateinit var sensorList: List<Sensor>
-
         const val GARDEN_ID = "GARDEN_ID"
         const val PLANT_ID = "PLANT_ID"
 

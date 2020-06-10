@@ -13,7 +13,7 @@ import retrofit2.http.Path
 import xuanngoc.myapplication.model.*
 
 
-private const val BASE_URL = "https://water-garden.herokuapp.com//api/"
+private const val BASE_URL = "https://water-garden.herokuapp.com/api/"
 
 private val moshi = Moshi.Builder()
     .add(KotlinJsonAdapterFactory())
