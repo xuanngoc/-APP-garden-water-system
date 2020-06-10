@@ -5,6 +5,11 @@ import xuanngoc.myapplication.model.*
 class DataList {
 
     companion object {
+
+        fun getGardenByGardenId(gardens: List<Garden>, id: Int): Garden? {
+            return gardens.find { garden -> garden.id == id  }
+        }
+
         fun getPlantByPlantId(plants: List<Plant>, id: Int): Plant {
             plants.forEach { plant ->
                 if (plant.id == id) {

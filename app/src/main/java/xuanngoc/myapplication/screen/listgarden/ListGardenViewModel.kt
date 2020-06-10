@@ -33,21 +33,6 @@ class ListGardenViewModel: ViewModel() {
     val plants: LiveData<List<Plant>>
         get() = _plants
 
-    private val _deviceTypes = MutableLiveData<List<DeviceType>>()
-    val deviceTypes: LiveData<List<DeviceType>>
-        get() = _deviceTypes
-
-    private val _devices = MutableLiveData<List<Device>>()
-    val devices: LiveData<List<Device>>
-        get() = _devices
-
-    private val _sensorTypes = MutableLiveData<List<SensorType>>()
-    val sensorTypes: LiveData<List<SensorType>>
-        get() = _sensorTypes
-
-    private val _sensors = MutableLiveData<List<Sensor>>()
-    val sensors: LiveData<List<Sensor>>
-        get() = _sensors
 
     // Create a Coroutine scope using a job to be able to cancel when needed
     private var viewModelJob = Job()
@@ -58,10 +43,7 @@ class ListGardenViewModel: ViewModel() {
     init {
         getGardens()
         getPlants()
-        getDevices()
-        getDeviceTypes()
-        getSensorTypes()
-        getSensors()
+
     }
 
 
@@ -83,76 +65,22 @@ class ListGardenViewModel: ViewModel() {
     }
 
     private fun getPlants() {
-
-    }
-
-    private fun getDeviceTypes() {
         coroutineScope.launch {
             // Get the Deferred object for our Retrofit request
-            val getPropertiesDeferred = GardenApi.retrofitService.getListDeviceTypeAsync()
+            val getPropertiesDeferred = GardenApi.retrofitService.getListPlantAsync()
             try {
                 _status.value = GardenApiStatus.LOADING
                 // this will run on a thread managed by Retrofit
                 val listResult = getPropertiesDeferred.await()
                 _status.value = GardenApiStatus.DONE
-                _deviceTypes.value = listResult
+                _plants.value = listResult
             } catch (e: Exception) {
                 _status.value = GardenApiStatus.ERROR
-                _deviceTypes.value = ArrayList()
+                _plants.value = ArrayList()
             }
         }
     }
 
-    private fun getDevices() {
-        coroutineScope.launch {
-            // Get the Deferred object for our Retrofit request
-            val getPropertiesDeferred = GardenApi.retrofitService.getListDeviceAsync()
-            try {
-                _status.value = GardenApiStatus.LOADING
-                // this will run on a thread managed by Retrofit
-                val listResult = getPropertiesDeferred.await()
-                _status.value = GardenApiStatus.DONE
-                _devices.value = listResult
-            } catch (e: Exception) {
-                _status.value = GardenApiStatus.ERROR
-                _devices.value = ArrayList()
-            }
-        }
-    }
-
-    private fun getSensorTypes() {
-        coroutineScope.launch {
-            // Get the Deferred object for our Retrofit request
-            val getPropertiesDeferred = GardenApi.retrofitService.getListSensorTypeAsync()
-            try {
-                _status.value = GardenApiStatus.LOADING
-                // this will run on a thread managed by Retrofit
-                val listResult = getPropertiesDeferred.await()
-                _status.value = GardenApiStatus.DONE
-                _sensorTypes.value = listResult
-            } catch (e: Exception) {
-                _status.value = GardenApiStatus.ERROR
-                _sensorTypes.value = ArrayList()
-            }
-        }
-    }
-
-    private fun getSensors() {
-        coroutineScope.launch {
-            // Get the Deferred object for our Retrofit request
-            val getPropertiesDeferred = GardenApi.retrofitService.getListSensorAsync()
-            try {
-                _status.value = GardenApiStatus.LOADING
-                // this will run on a thread managed by Retrofit
-                val listResult = getPropertiesDeferred.await()
-                _status.value = GardenApiStatus.DONE
-                _sensors.value = listResult
-            } catch (e: Exception) {
-                _status.value = GardenApiStatus.ERROR
-                _sensors.value = ArrayList()
-            }
-        }
-    }
 
 
     override fun onCleared() {

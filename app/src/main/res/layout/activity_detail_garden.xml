@@ -6,12 +6,23 @@
             name="viewModel"
             type="xuanngoc.myapplication.screen.detailgarden.DetailGardenViewModel" />
     </data>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/swipe_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <ScrollView
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_height="match_parent"
         android:layout_width="match_parent"
         android:background="#67e6dc">
+
 
         <LinearLayout
             style="@style/commonText"
@@ -28,7 +39,6 @@
                 android:gravity="center"
                 android:textSize="30sp"
                 android:textColor="#ff3838"
-                android:text="@{viewModel.gardenName}"
                 tools:text="Vườn táo" />
 
             <TextView
@@ -101,7 +111,7 @@
                 android:id="@+id/expandListDeviceBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="25dp"
                 android:layout_marginStart="15dp"
                 style="@style/commonText"
                 android:clickable="true"
@@ -169,7 +179,7 @@
                 android:id="@+id/expandListSensorBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="25dp"
                 android:layout_marginStart="15dp"
                 style="@style/commonText"
                 android:clickable="true"
@@ -233,6 +243,10 @@
                 </TableRow>
             </TableLayout>
 
+
+
         </LinearLayout>
     </ScrollView>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+    </FrameLayout>
 </layout>
